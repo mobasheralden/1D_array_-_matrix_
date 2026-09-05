@@ -5,46 +5,44 @@ struct node
     int data;
     node *next;
 };
-node *createNode(int val)
+node *createNewnode(int val)
 {
-    node *newNode = new node();
-    newNode->data = val;
-    newNode->next = NULL;
-    return newNode;
+    node *newnode = new node();
+    newnode->data = val;
+    newnode->next = NULL;
+    return newnode;
 }
 int main()
 {
     int n;
-    cin>>n;
-
-    int arr[n];
+    cin >> n;
+    int ar[n];
     for (int i = 0; i < n; i++)
     {
-        cin>>arr[i];
+        cin >> ar[i];
     }
-    
-    node *head, *cur;
+    node *head, *current;
     head = NULL;
     for (int i = 0; i < n; i++)
     {
-        node *temp = createNode(arr[i]);
+        node *temp = createNewnode(ar[i]);
         if (head == NULL)
         {
             head = temp;
-            cur = temp;
+            current = temp;
         }
         else
         {
-            cur->next = temp;
-            cur = cur->next;
+            current->next = temp;
+            current = current->next;
         }
     }
-    cur = head;
-    while (cur != NULL)
+    current = head;
+    while (current != NULL)
     {
-        cout << cur->data;
-        cur = cur->next;
-        if (cur != NULL)
+        cout << current->data;
+        current = current->next;
+        if (current != NULL)
         {
             cout << " -> ";
         }
